@@ -11,6 +11,7 @@ import Footer, { messages as footerMessages } from '@edx/frontend-component-foot
 
 import configureStore from './data/configureStore';
 import AccountSettingsPage, { NotFoundPage } from './account-settings';
+import IdVerificationPage from './id-verification';
 import CoachingConsent from './account-settings/coaching/CoachingConsent';
 import appMessages from './i18n';
 
@@ -33,6 +34,7 @@ subscribe(APP_READY, () => {
       <Switch>
         <Route path="/coaching_consent" component={CoachingConsent} />
         <HeaderFooterLayout>
+          <Route exact path="/id-verification" component={IdVerificationPage} />
           <Route exact path="/" component={AccountSettingsPage} />
           <Route path="/notfound" component={NotFoundPage} />
           <Route path="*" component={NotFoundPage} />
