@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import BasePanel from './BasePanel';
+import { useNextPanelSlug } from '../routing-utilities';
 
 export default function TakeIdPhotoPanel() {
+  const panelSlug = 'take-id-photo';
+  const nextPanelSlug = useNextPanelSlug(panelSlug);
   return (
-    <BasePanel
-      name="take-id-photo"
-      title="TakeIdPhotoPanel"
-    >
-      content
-    </BasePanel>
+    <div className={`${panelSlug}-panel`}>
+      <h1>TakeIdPhotoPanel</h1>
+      <Link to={nextPanelSlug}>
+        <button className="btn btn-primary">Next</button>
+      </Link>
+    </div>
   );
 }

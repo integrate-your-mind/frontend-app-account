@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import BasePanel from './BasePanel';
+import { useNextPanelSlug } from '../routing-utilities';
 
 export default function GetNameIdPanel() {
+  const panelSlug = 'get-name-id';
+  const nextPanelSlug = useNextPanelSlug(panelSlug);
   return (
-    <BasePanel
-      name="get-name-id"
-      title="Get Name on Id"
-    >
-      content
-    </BasePanel>
+    <div className={`${panelSlug}-panel`}>
+      <h1>GetNameIdPanel</h1>
+      <Link to={nextPanelSlug}>
+        <button className="btn btn-primary">Next</button>
+      </Link>
+    </div>
   );
 }

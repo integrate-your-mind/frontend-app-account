@@ -1,14 +1,10 @@
 import React from 'react';
 
-import BasePanel from './BasePanel';
-
 export default function SummaryPanel() {
+  const panelSlug = 'summary';
   return (
-    <BasePanel
-      name="summary"
-      title="Summary"
-    >
-      content
-    </BasePanel>
+    <div className={`${panelSlug}-panel`}>
+      <h1>SummaryPanel</h1>
+    </div>
   );
 }
