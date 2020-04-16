@@ -12,8 +12,8 @@ export default function TakeIdPhotoPanel() {
       name={panelSlug}
       title="Take photo of id panel"
     >
-      <Link to={nextPanelSlug}>
-        <button className="btn btn-primary">Next</button>
+      <Link to={nextPanelSlug} className="btn btn-primary">
+        Next
       </Link>
     </BasePanel>
   );

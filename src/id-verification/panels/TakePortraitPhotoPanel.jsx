@@ -12,8 +12,8 @@ export default function TakePortraitPhotoPanel() {
       name={panelSlug}
       title="Take portrait photo panel"
     >
-      <Link to={nextPanelSlug}>
-        <button className="btn btn-primary">Next</button>
+      <Link to={nextPanelSlug} className="btn btn-primary">
+        Next
       </Link>
     </BasePanel>
   );

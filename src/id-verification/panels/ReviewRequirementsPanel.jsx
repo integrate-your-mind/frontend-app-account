@@ -17,8 +17,8 @@ export default function ReviewRequirementsPanel() {
         <li>A camera. (webcam or cell phone)</li>
         <li>A photo ID. (drivers license, passport, or other government issued ID)</li>
       </ul>
-      <Link to={nextPanelSlug}>
-        <button className="btn btn-primary">Next</button>
+      <Link to={nextPanelSlug} className="btn btn-primary">
+        Next
       </Link>
     </BasePanel>
   );

@@ -12,8 +12,8 @@ export default function IdContextPanel() {
       name={panelSlug}
       title="IdContextPanel"
     >
-      <Link to={nextPanelSlug}>
-        <button className="btn btn-primary">Next</button>
+      <Link to={nextPanelSlug} className="btn btn-primary">
+        Next
       </Link>
     </BasePanel>
   );
