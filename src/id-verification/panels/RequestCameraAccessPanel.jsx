@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Collapsible } from '@edx/paragon';
 
 import { useNextPanelSlug } from '../routing-utilities';
 import BasePanel from './BasePanel';
@@ -16,28 +17,47 @@ export default function RequestCameraAccessPanel() {
       title="Request Camera Access Panel"
     >
       {mediaAccess === MEDIA_ACCESS.PENDING && (
-        <>
-          Click the button below to enable the camera on your device.
-          <button onClick={tryGetUserMedia}>Enable Camera</button>
-        </>
+        <div>
+          <p>Click the button below to enable the camera on your device.</p>
+          <button className="btn btn-primary mb-3" onClick={tryGetUserMedia}>
+            Enable Camera
+          </button>
+          <Collapsible.Advanced>
+            <Collapsible.Trigger tag="button" className="btn btn-link px-0 mb-3">
+              Having problems?
+            </Collapsible.Trigger>
+            <Collapsible.Body>
+              <Link to={nextPanelSlug} className="btn btn-outline-primary">
+                Skip and upload image files instead
+              </Link>
+            </Collapsible.Body>
+          </Collapsible.Advanced>
+        </div>
       )}
 
       {mediaAccess === MEDIA_ACCESS.GRANTED && (
         <div>
+          <p>
           Looks like your camera is working and ready.
+          </p>
+          <Link to={nextPanelSlug} className="btn btn-primary">
+            Next
+          </Link>
         </div>
       )}
 
       {[MEDIA_ACCESS.UNSUPPORTED, MEDIA_ACCESS.DENIED].includes(mediaAccess) && (
         <div>
-          It looks like we're unable to access your camera. You will need to upload
-          image files of you and your photo id.
+          <p>
+            It looks like we're unable to access your camera. You will need to upload
+            image files of you and your photo id.
+          </p>
+          <Link to={nextPanelSlug} className="btn btn-primary">
+            Next
+          </Link>
         </div>
       )}
 
-      <Link to={nextPanelSlug} className="btn btn-primary">
-        Next
-      </Link>
     </BasePanel>
   );
 }
