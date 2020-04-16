@@ -9,7 +9,9 @@ export default function TakePortraitPhotoPanel() {
   return (
     <div className={`${panelSlug}-panel`}>
       <h1>TakePortraitPhotoPanel</h1>
-      <Link to={nextPanelSlug}>{nextPanelSlug}</Link>
+      <Link to={nextPanelSlug}>
+        <button className="btn btn-primary">Next</button>
+      </Link>
     </div>
   );
 }

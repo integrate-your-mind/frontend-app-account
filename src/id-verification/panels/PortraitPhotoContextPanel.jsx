@@ -9,7 +9,9 @@ export default function PortraitPhotoContextPanel() {
   return (
     <div className={`${panelSlug}-panel`}>
       <h1>PortraitPhotoContextPanel</h1>
-      <Link to={nextPanelSlug}>{nextPanelSlug}</Link>
+      <Link to={nextPanelSlug}>
+        <button className="btn btn-primary">Next</button>
+      </Link>
     </div>
   );
 }
