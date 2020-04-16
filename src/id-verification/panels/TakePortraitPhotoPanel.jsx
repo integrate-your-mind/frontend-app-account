@@ -2,16 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useNextPanelSlug } from '../routing-utilities';
+import BasePanel from './BasePanel';
 
 export default function TakePortraitPhotoPanel() {
   const panelSlug = 'take-portrait-photo';
   const nextPanelSlug = useNextPanelSlug(panelSlug);
   return (
-    <div className={`${panelSlug}-panel`}>
-      <h1>TakePortraitPhotoPanel</h1>
+    <BasePanel
+      name={panelSlug}
+      title="Take portrait photo panel"
+    >
       <Link to={nextPanelSlug}>
         <button className="btn btn-primary">Next</button>
       </Link>
-    </div>
+    </BasePanel>
   );
 }
