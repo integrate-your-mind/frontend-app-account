@@ -11,6 +11,7 @@ export default function ReviewRequirementsPanel() {
     <BasePanel
       name={panelSlug}
       title="What you will need"
+      focusOnMount={false}
     >
       <ul>
         <li>A camera. (webcam or cell phone)</li>
