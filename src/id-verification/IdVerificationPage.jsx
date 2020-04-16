@@ -4,6 +4,7 @@ import { Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
 import { injectIntl } from '@edx/frontend-platform/i18n';
 
 import { idVerificationSelector } from './data/selectors';
+import './getUserMediaShim';
 
 import { IdVerificationContextProvider } from './IdVerificationContext';
 import ReviewRequirementsPanel from './panels/ReviewRequirementsPanel';
