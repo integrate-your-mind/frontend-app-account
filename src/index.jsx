@@ -34,10 +34,12 @@ subscribe(APP_READY, () => {
       <Switch>
         <Route path="/coaching_consent" component={CoachingConsent} />
         <HeaderFooterLayout>
-          <Route exact path="/id-verification" component={IdVerificationPage} />
-          <Route exact path="/" component={AccountSettingsPage} />
-          <Route path="/notfound" component={NotFoundPage} />
-          <Route path="*" component={NotFoundPage} />
+          <Switch>
+            <Route exact path="/id-verification" component={IdVerificationPage} />
+            <Route exact path="/" component={AccountSettingsPage} />
+            <Route path="/notfound" component={NotFoundPage} />
+            <Route path="*" component={NotFoundPage} />
+          </Switch>
         </HeaderFooterLayout>
       </Switch>
     </AppProvider>,
