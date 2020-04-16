@@ -35,7 +35,7 @@ subscribe(APP_READY, () => {
         <Route path="/coaching_consent" component={CoachingConsent} />
         <HeaderFooterLayout>
           <Switch>
-            <Route exact path="/id-verification" component={IdVerificationPage} />
+            <Route path="/id-verification" component={IdVerificationPage} />
             <Route exact path="/" component={AccountSettingsPage} />
             <Route path="/notfound" component={NotFoundPage} />
             <Route path="*" component={NotFoundPage} />
