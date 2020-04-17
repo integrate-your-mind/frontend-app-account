@@ -7,6 +7,7 @@ import { useNextPanelSlug } from '../routing-utilities';
 import { submitIdVerfication } from '../data/service';
 import BasePanel from './BasePanel';
 import { IdVerificationContext } from '../IdVerificationContext';
+import ImagePreview from '../ImagePreview';
 
 export default function SummaryPanel() {
   const panelSlug = 'summary';
@@ -31,31 +32,14 @@ export default function SummaryPanel() {
     );
   }
 
-  function SummaryImage({ imageData, alt }) {
-    return (
-      <img
-        style="display:block; width:100px;height:100px;"
-        src={imageData}
-        alt={alt}
-        className="embed-responsive-item"
-        style={{ objectFit: 'contain' }}
-      />
-    );
-  }
-
-  SummaryImage.propTypes = {
-    imageData: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired,
-  };
-
   return (
     <BasePanel
       name={panelSlug}
       title="Review Your Photos"
     >
-      <SummaryImage
-        imageData={context.facePhotoFile}
-        alt="Image of your face to submit."
+      <ImagePreview
+        src={context.facePhotoFile}
+        name='Photo of your face to be submitted.'
       />
       <SubmitButton />
     </BasePanel>

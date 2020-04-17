@@ -18,7 +18,7 @@ export default function TakeIdPhotoPanel() {
       title="Take ID Photo"
     >
       <div>
-        {idPhotoFile && <ImagePreview src={idPhotoFile} name="User Image" />}
+        {idPhotoFile && <ImagePreview src={idPhotoFile} name="Preview of photo of ID." />}
 
         {/* will swap with the camera component when it's ready */}
         {mediaAccess === MEDIA_ACCESS.GRANTED ? (

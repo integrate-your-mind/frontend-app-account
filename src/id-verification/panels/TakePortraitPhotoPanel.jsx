@@ -18,7 +18,7 @@ export default function TakePortraitPhotoPanel() {
       title="Take Your Photo"
     >
       <div>
-        {facePhotoFile && <ImagePreview src={facePhotoFile} name="User Image" />}
+        {facePhotoFile && <ImagePreview src={facePhotoFile} name="Preview of photo of user's face." />}
 
         {/* will swap with the camera component when it's ready */}
         {mediaAccess === MEDIA_ACCESS.GRANTED ? (
