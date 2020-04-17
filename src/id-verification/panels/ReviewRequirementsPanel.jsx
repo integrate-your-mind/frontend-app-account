@@ -10,7 +10,7 @@ export default function ReviewRequirementsPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="What you will need"
+      title="Photo Verification Requirements"
       focusOnMount={false}
     >
       <p>
@@ -19,7 +19,7 @@ export default function ReviewRequirementsPanel() {
       <div className="card mb-4 shadow  ">
         <div className="card-body">
           <h6>Device with Camera</h6>
-          <p className="mb-0">You need a device that has a camera. If you receive a browser prompt for access to your camera, please make sure to click 'Allow'.</p>
+          <p className="mb-0">You need a device that has a camera. If you receive a browser prompt for access to your camera, please make sure to click <strong>Allow</strong>.</p>
         </div>
       </div>
       <div className="card mb-4 shadow">
