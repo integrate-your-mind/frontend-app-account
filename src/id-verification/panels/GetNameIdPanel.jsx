@@ -29,7 +29,7 @@ export default function GetNameIdPanel() {
       <p>Please check the Account Name below to ensure it matches the name on your ID. If not, click "Edit".</p>
 
       <div className="alert alert-warning">
-        <strong>Please Note: any edit to your name will be saved to your account and can be reviewed on Account Settings.</strong>
+        <strong>Please Note:</strong> any edit to your name will be saved to your account and can be reviewed on <Link to="/">Account Settings</Link>.
       </div>
 
       <div className="form-group">

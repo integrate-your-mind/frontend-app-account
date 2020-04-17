@@ -82,14 +82,26 @@ export default function SummaryPanel() {
         </div>
       </div>
       <div className="form-group">
-        <label htmlFor="name-to-be-used">Name to be used</label>
-        <Input
-          id="name-to-be-used"
-          type="text"
-          readOnly
-          value={nameToBeUsed}
-          onChange={() => {}}
-        />
+        <label htmlFor="name-to-be-used">Name on ID</label>
+        <div className="d-flex">
+          <Input
+            id="name-to-be-used"
+            type="text"
+            readOnly
+            value={nameToBeUsed}
+            onChange={() => {}}
+          />
+
+          <Link
+            className="btn btn-link ml-3 px-0"
+            to={{
+                pathname: 'get-name-id',
+                state: { fromSummary: true },
+              }}
+          >
+            Edit
+          </Link>
+        </div>
       </div>
       <SubmitButton />
     </BasePanel>
