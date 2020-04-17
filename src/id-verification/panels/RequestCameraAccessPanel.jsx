@@ -18,7 +18,14 @@ export default function RequestCameraAccessPanel() {
     >
       {mediaAccess === MEDIA_ACCESS.PENDING && (
         <div>
-          <p>Click the button below to enable the camera on your device.</p>
+          <p>In order to take a photo using your webcam, you may receive a browser prompt for access to your camera. <strong>Please make sure to click "Allow"</strong></p>
+
+          <h6>Why does edX need my photo?</h6>
+          <p>We use your verification photos to confirm your identity and ensure the validity of your certificate.</p>
+
+          <h6>What does edX do with this photo?</h6>
+          <p>We securely encrypt your photo and send it our authorization service for review. Your photo and information are not saved or visible anywhere on edX after the verification process is complete.</p>
+
           <div className="action-row">
             <button className="btn btn-primary" onClick={tryGetUserMedia}>
               Enable Camera
