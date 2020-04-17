@@ -12,7 +12,7 @@ import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
  *  canVerify: Boolean,
  * }
  */
-export async function getIdVerificationStatus() {
+export async function getExistingIdVerification() {
   const url = `${getConfig().LMS_BASE_URL}/verify_student/status/`;
   const requestConfig = {
     headers: { Accept: 'application/json' },
