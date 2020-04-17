@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { IdVerificationContext } from './IdVerificationContext';
+import { useLocation } from 'react-router';
 
 const panelSteps = [
   'review-requirements',
@@ -15,8 +16,13 @@ const panelSteps = [
 
 // eslint-disable-next-line import/prefer-default-export
 export const useNextPanelSlug = (originSlug) => {
-  // TODO: Add more logic to check whether we go to the summary panel or not
-  // likely this will mean checking a context to know what has been completed so far.
+  // Go back to the summary view if that's where they came from
+  const location = useLocation();
+  const isFromSummary = location.state && location.state.fromSummary;
+  if (isFromSummary) {
+    return 'summary';
+  }
+
   const nextIndex = panelSteps.indexOf(originSlug) + 1;
   return nextIndex < panelSteps.length ? panelSteps[nextIndex] : null;
 };

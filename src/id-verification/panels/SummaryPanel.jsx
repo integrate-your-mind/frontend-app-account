@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { history } from '@edx/frontend-platform';
 import { Input, Button } from '@edx/paragon';
+import { Link } from 'react-router-dom';
 
 import { useNextPanelSlug } from '../routing-utilities';
 import { submitIdVerfication } from '../data/service';
@@ -24,10 +25,10 @@ export default function SummaryPanel() {
   function SubmitButton() {
     function handleClick(e) {
       const verificationData = {
-        facePhotoFile: facePhotoFile,
-        idPhotoFile: idPhotoFile,
-        idPhotoName: idPhotoName,
-        courseRunKey: courseRunKey,
+        facePhotoFile,
+        idPhotoFile,
+        idPhotoName,
+        courseRunKey,
       };
       const { success, message } = submitIdVerfication(verificationData);
       history.push(nextPanelSlug);
@@ -44,33 +45,52 @@ export default function SummaryPanel() {
       name={panelSlug}
       title="Review Your Photos"
     >
-      <div class="row">
-        <div class="col-6">
+      <p>Make sure we can verify your identity with the photos and information you have provided.</p>
+      <div className="row">
+        <div className="col-6">
           <label htmlFor="photo-of-face">Your face</label>
           <ImagePreview
             id="photo-of-face"
             src={facePhotoFile}
-            alt='Photo of your face to be submitted.'
+            alt="Photo of your face to be submitted."
           />
+          <Link
+            className="btn btn-inverse-primary shadow"
+            to={{
+              pathname: 'take-portrait-photo',
+              state: { fromSummary: true },
+            }}
+          >
+            Retake
+          </Link>
         </div>
-        <div class="col-6">
-          <label htmlFor="photo-of-id">Your ID</label>
+        <div className="col-6">
+          <label htmlFor="photo-of-id/edit">Your ID</label>
           <ImagePreview
             id="photo-of-id"
             src={idPhotoFile}
-            alt='Photo of your ID to be submitted.'
+            alt="Photo of your ID to be submitted."
           />
+          <Link
+            className="btn btn-inverse-primary shadow"
+            to={{
+              pathname: 'take-id-photo',
+              state: { fromSummary: true },
+            }}
+          >
+            Retake
+          </Link>
         </div>
       </div>
       <div className="form-group">
-          <label htmlFor="name-to-be-used">Name to be used</label>
-          <Input
-            id="name-to-be-used"
-            type="text"
-            readOnly
-            value={nameToBeUsed}
-            onChange={() => {}}
-          />
+        <label htmlFor="name-to-be-used">Name to be used</label>
+        <Input
+          id="name-to-be-used"
+          type="text"
+          readOnly
+          value={nameToBeUsed}
+          onChange={() => {}}
+        />
       </div>
       <SubmitButton />
     </BasePanel>
