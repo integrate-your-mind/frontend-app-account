@@ -30,16 +30,16 @@ export const useVerificationRedirectSlug = (slug) => {
   // TODO: remove this short-circuit after development is done
   return null;
 
-  if (!facePhotoFile) {
-    if (indexOfCurrentPanel > panelSteps.indexOf('take-portrait-photo')) {
-      return 'portrait-photo-context';
-    }
-  } else if (!idPhotoFile) {
-    if (indexOfCurrentPanel > panelSteps.indexOf('take-id-photo')) {
-      return 'id-context';
-    }
-  }
+  // if (!facePhotoFile) {
+  //   if (indexOfCurrentPanel > panelSteps.indexOf('take-portrait-photo')) {
+  //     return 'portrait-photo-context';
+  //   }
+  // } else if (!idPhotoFile) {
+  //   if (indexOfCurrentPanel > panelSteps.indexOf('take-id-photo')) {
+  //     return 'id-context';
+  //   }
+  // }
 
-  // The user has satisfied requirements to view the panel they're on.
-  return null;
+  // // The user has satisfied requirements to view the panel they're on.
+  // return null;
 };
