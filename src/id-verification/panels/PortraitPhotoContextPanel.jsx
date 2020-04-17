@@ -10,7 +10,7 @@ export default function PortraitPhotoContextPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="Portrait Photo Access Panel"
+      title="Portrait Photo Context Panel"
     >
       <Link to={nextPanelSlug} className="btn btn-primary">
         Next
