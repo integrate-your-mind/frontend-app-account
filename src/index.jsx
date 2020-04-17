@@ -19,11 +19,11 @@ import './index.scss';
 import './assets/favicon.ico';
 
 const HeaderFooterLayout = ({ children }) => (
-  <div>
+  <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
     <Header />
-      <main>
-        {children}
-      </main>
+    <main className="flex-grow-1">
+      {children}
+    </main>
     <Footer />
   </div>
 );
