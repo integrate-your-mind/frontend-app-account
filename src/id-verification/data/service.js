@@ -3,6 +3,31 @@ import qs from 'qs';
 import { getConfig } from '@edx/frontend-platform';
 import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 
+/**
+ * Get ID verification status from LMS.
+ *
+ * Returns {
+ *  status: String,
+ *  expires: String|null,
+ *  canVerify: Boolean,
+ * }
+ */
+export async function getIdVerificationStatus() {
+  const url = `${getConfig().LMS_BASE_URL}/verify_student/status/`;
+  const requestConfig = {
+    headers: { Accept: 'application/json' },
+  };
+  try {
+    const responseData = await getAuthenticatedHttpClient().get(url, requestConfig);
+    return {
+      status: responseData.status || null,
+      expires: responseData.expires || null,
+      canVerify: responseData.can_verify || false,
+    };
+  } catch (e) {
+    return { status: null, expires: null, canVerify: false };
+  }
+}
 
 /**
  * Submit ID verifiction to LMS.
@@ -15,7 +40,6 @@ import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
  *
  * Returns { success: Boolean, message: String|null }
  */
-// eslint-disable-next-line import/prefer-default-export
 export async function submitIdVerfication(verificationData) {
   const keyMap = {
     facePhotoFile: 'face_image',
