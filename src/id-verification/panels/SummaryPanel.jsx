@@ -20,9 +20,9 @@ export default function SummaryPanel() {
         idPhotoFile: context.idPhotoFile,
         idPhotoName: context.idPhotoName,
         courseRunKey: context.courseRunKey,
-      }
+      };
       const { success, message } = submitIdVerfication(verificationData);
-      history.push(nextPanelSlug)
+      history.push(nextPanelSlug);
     }
     return (
       <Button className="btn btn-primary" onClick={handleClick}>
@@ -34,7 +34,7 @@ export default function SummaryPanel() {
   function SummaryImage({ imageData, alt }) {
     return (
       <img
-        style='display:block; width:100px;height:100px;'
+        style="display:block; width:100px;height:100px;"
         src={imageData}
         alt={alt}
         className="embed-responsive-item"
@@ -51,11 +51,11 @@ export default function SummaryPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="Summary panel"
+      title="Review Your Photos"
     >
       <SummaryImage
         imageData={context.facePhotoFile}
-        alt='Image of your face to submit.'
+        alt="Image of your face to submit."
       />
       <SubmitButton />
     </BasePanel>

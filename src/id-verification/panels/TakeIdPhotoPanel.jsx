@@ -15,7 +15,7 @@ export default function TakeIdPhotoPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="Take photo of id panel"
+      title="Take ID Photo"
     >
       <div>
         {idPhotoFile && <ImagePreview src={idPhotoFile} name="User Image" />}

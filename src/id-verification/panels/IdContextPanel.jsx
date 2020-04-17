@@ -10,7 +10,7 @@ export default function IdContextPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="IdContextPanel"
+      title="Helpful ID Tips"
     >
       <div className="action-row">
         <Link to={nextPanelSlug} className="btn btn-primary">

@@ -15,7 +15,7 @@ export default function TakePortraitPhotoPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="Take portrait photo panel"
+      title="Take Your Photo"
     >
       <div>
         {facePhotoFile && <ImagePreview src={facePhotoFile} name="User Image" />}

@@ -14,7 +14,7 @@ export default function RequestCameraAccessPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="Request Camera Access Panel"
+      title="Camera Permissions"
     >
       {mediaAccess === MEDIA_ACCESS.PENDING && (
         <div>

@@ -13,7 +13,7 @@ export default function GetNameIdPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title="GetNameIdPanel"
+      title="Account Name Check"
     >
       <p>The name on your account is: {nameOnAccount}</p>
 
