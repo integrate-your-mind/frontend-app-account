@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { history } from '@edx/frontend-platform';
 import { Input, Button } from '@edx/paragon';
@@ -46,7 +45,7 @@ export default function SummaryPanel() {
       title="Review Your Photos"
     >
       <p>Make sure we can verify your identity with the photos and information you have provided.</p>
-      <div className="row">
+      <div className="row mb-4">
         <div className="col-6">
           <label htmlFor="photo-of-face">Your face</label>
           <ImagePreview

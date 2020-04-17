@@ -1,6 +1,6 @@
 import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import { IdVerificationContext } from './IdVerificationContext';
-import { useLocation } from 'react-router';
 
 const panelSteps = [
   'review-requirements',
@@ -30,22 +30,23 @@ export const useNextPanelSlug = (originSlug) => {
 // check if the user is too far into the flow and if so, return the slug of the
 // furthest panel they are allow to be.
 export const useVerificationRedirectSlug = (slug) => {
-  const { facePhotoFile, idPhotoFile } = useContext(IdVerificationContext);
-  const indexOfCurrentPanel = panelSteps.indexOf(slug);
-
   // TODO: remove this short-circuit after development is done
   return null;
 
-  // if (!facePhotoFile) {
-  //   if (indexOfCurrentPanel > panelSteps.indexOf('take-portrait-photo')) {
-  //     return 'portrait-photo-context';
-  //   }
-  // } else if (!idPhotoFile) {
-  //   if (indexOfCurrentPanel > panelSteps.indexOf('take-id-photo')) {
-  //     return 'id-context';
-  //   }
-  // }
+  // eslint-disable-next-line no-unreachable
+  const { facePhotoFile, idPhotoFile } = useContext(IdVerificationContext);
+  const indexOfCurrentPanel = panelSteps.indexOf(slug);
 
-  // // The user has satisfied requirements to view the panel they're on.
-  // return null;
+  if (!facePhotoFile) {
+    if (indexOfCurrentPanel > panelSteps.indexOf('take-portrait-photo')) {
+      return 'portrait-photo-context';
+    }
+  } else if (!idPhotoFile) {
+    if (indexOfCurrentPanel > panelSteps.indexOf('take-id-photo')) {
+      return 'id-context';
+    }
+  }
+
+  // The user has satisfied requirements to view the panel they're on.
+  return null;
 };
