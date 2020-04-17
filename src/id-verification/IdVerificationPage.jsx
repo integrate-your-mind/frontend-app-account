@@ -15,6 +15,7 @@ import IdContextPanel from './panels/IdContextPanel';
 import GetNameIdPanel from './panels/GetNameIdPanel';
 import TakeIdPhotoPanel from './panels/TakeIdPhotoPanel';
 import SummaryPanel from './panels/SummaryPanel';
+import SubmittedPanel from './panels/SubmittedPanel';
 
 // eslint-disable-next-line react/prefer-stateless-function
 function IdVerificationPage() {
@@ -35,6 +36,7 @@ function IdVerificationPage() {
           <Route path={`${path}/get-name-id`} component={GetNameIdPanel} />
           <Route path={`${path}/take-id-photo`} component={TakeIdPhotoPanel} />
           <Route path={`${path}/summary`} component={SummaryPanel} />
+          <Route path={`${path}/submitted`} component={SubmittedPanel} />
         </Switch>
       </IdVerificationContextProvider>
     </div>
