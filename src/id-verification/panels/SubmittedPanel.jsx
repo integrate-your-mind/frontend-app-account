@@ -6,7 +6,6 @@ import BasePanel from './BasePanel';
 
 export default function SubmittedPanel() {
   const panelSlug = 'submitted';
-  const nextPanelSlug = useNextPanelSlug(panelSlug);
   return (
     <BasePanel
       name={panelSlug}
