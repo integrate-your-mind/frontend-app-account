@@ -11,17 +11,18 @@ export default function TakePortraitPhotoPanel() {
   const panelSlug = 'take-portrait-photo';
   const nextPanelSlug = useNextPanelSlug(panelSlug);
   const { setFacePhotoFile, facePhotoFile, mediaAccess } = useContext(IdVerificationContext);
+  const shouldUseCamera = mediaAccess === MEDIA_ACCESS.GRANTED;
 
   return (
     <BasePanel
       name={panelSlug}
-      title="Take Your Photo"
+      title={shouldUseCamera ? 'Take Your Photo' : 'Upload Your Photo'}
     >
       <div>
         {facePhotoFile && <ImagePreview src={facePhotoFile} name="Preview of photo of user's face." />}
 
         {/* will swap with the camera component when it's ready */}
-        {mediaAccess === MEDIA_ACCESS.GRANTED ? (
+        {shouldUseCamera ? (
           <ImageFileUpload onFileChange={setFacePhotoFile} />
         ) : (
           <ImageFileUpload onFileChange={setFacePhotoFile} />

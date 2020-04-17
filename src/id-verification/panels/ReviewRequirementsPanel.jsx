@@ -16,7 +16,7 @@ export default function ReviewRequirementsPanel() {
       <p>
         In order to complete Photo Verification online, you will need the following
       </p>
-      <div className="card mb-4 shadow  ">
+      <div className="card mb-4 shadow">
         <div className="card-body">
           <h6>Device with Camera</h6>
           <p className="mb-0">You need a device that has a camera. If you receive a browser prompt for access to your camera, please make sure to click <strong>Allow</strong>.</p>
