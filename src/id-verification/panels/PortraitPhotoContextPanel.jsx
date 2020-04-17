@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useNextPanelSlug } from '../routing-utilities';
 import BasePanel from './BasePanel';
+import Camera from '../components/Camera';
 
 export default function PortraitPhotoContextPanel() {
   const panelSlug = 'portrait-photo-context';
@@ -23,6 +24,7 @@ export default function PortraitPhotoContextPanel() {
           </ul>
         </div>
       </div>
+      <Camera></Camera>
       <div className="action-row">
         <Link to={nextPanelSlug} className="btn btn-primary">
           Next

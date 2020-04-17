@@ -51,3 +51,38 @@ $fa-font-path: "~font-awesome/fonts";
     font-size: 	0.75rem;
   }
 }
+
+.camera-component {
+  width: 100%;
+}
+
+.camera-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%
+}
+
+.camera-video {
+  // position: absolute;
+  width: 100%;
+  // height: 100%;
+  // top: 0px;
+  // left: 0px;
+}
+
+#tracking-info {
+  position: absolute;
+}
+
+#camera-flash.normal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity :1;
+  transition:opacity .9s ease-out;
+}
+
+#camera-flash.do-transition {
+  opacity: 0;
+  background: white;
+}
