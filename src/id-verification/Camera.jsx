@@ -70,7 +70,7 @@ class Camera extends React.Component {
   render () {
     let cameraFlashClass = this.state.dataUri ? 'do-transition camera-flash' : 'camera-flash';
     return (
-      <div className="camera-component">
+      <div className="camera-outer-wrapper shadow">
         <div className="camera-wrapper">
           <div className={ cameraFlashClass }></div>
           <video
