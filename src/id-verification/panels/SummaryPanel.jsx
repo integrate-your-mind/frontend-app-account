@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { history } from '@edx/frontend-platform';
 import { Button } from '@edx/paragon';
@@ -30,11 +31,32 @@ export default function SummaryPanel() {
     );
   }
 
+  function SummaryImage({ imageData, alt }) {
+    return (
+      <img
+        style='display:block; width:100px;height:100px;'
+        src={imageData}
+        alt={alt}
+        className="embed-responsive-item"
+        style={{ objectFit: 'contain' }}
+      />
+    );
+  }
+
+  SummaryImage.propTypes = {
+    imageData: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+  };
+
   return (
     <BasePanel
       name={panelSlug}
       title="Summary panel"
     >
+      <SummaryImage
+        imageData={context.facePhotoFile}
+        alt='Image of your face to submit.'
+      />
       <SubmitButton />
     </BasePanel>
   );
