@@ -47,7 +47,7 @@ export default function SummaryPanel() {
       <p>Make sure we can verify your identity with the photos and information you have provided.</p>
       <div className="row mb-4">
         <div className="col-6">
-          <label htmlFor="photo-of-face">Your face</label>
+          <label htmlFor="photo-of-face">Your Portrait</label>
           <ImagePreview
             id="photo-of-face"
             src={facePhotoFile}
@@ -60,11 +60,11 @@ export default function SummaryPanel() {
               state: { fromSummary: true },
             }}
           >
-            Retake
+            Retake Portrait Photo
           </Link>
         </div>
         <div className="col-6">
-          <label htmlFor="photo-of-id/edit">Your ID</label>
+          <label htmlFor="photo-of-id/edit">Your Photo ID</label>
           <ImagePreview
             id="photo-of-id"
             src={idPhotoFile}
@@ -77,7 +77,7 @@ export default function SummaryPanel() {
               state: { fromSummary: true },
             }}
           >
-            Retake
+            Retake ID Photo
           </Link>
         </div>
       </div>
