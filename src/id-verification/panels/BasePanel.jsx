@@ -24,8 +24,8 @@ export default function BasePanel({
   }
 
   return (
-    <div className={`${name}-panel`}>
-      <h2 ref={headingRef} className="h4" tabIndex="-1">{title}</h2>
+    <div className={`verification-panel ${name}-panel`}>
+      <h3 aria-level="1" ref={headingRef} tabIndex="-1">{title}</h3>
       {children}
     </div>
   );

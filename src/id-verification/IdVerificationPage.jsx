@@ -22,7 +22,6 @@ function IdVerificationPage() {
   const { path } = useRouteMatch();
   return (
     <div className="page__id-verification container-fluid py-5">
-      <h1>Verify your Identity</h1>
       <IdVerificationContextProvider>
         <Switch>
           <Route exact path={path}>

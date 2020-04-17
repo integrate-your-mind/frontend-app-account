@@ -12,9 +12,11 @@ export default function PortraitPhotoContextPanel() {
       name={panelSlug}
       title="Portrait Photo Context Panel"
     >
-      <Link to={nextPanelSlug} className="btn btn-primary">
-        Next
-      </Link>
+      <div className="action-row">
+        <Link to={nextPanelSlug} className="btn btn-primary">
+          Next
+        </Link>
+      </div>
     </BasePanel>
   );
 }

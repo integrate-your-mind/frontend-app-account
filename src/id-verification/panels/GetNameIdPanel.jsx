@@ -26,9 +26,11 @@ export default function GetNameIdPanel() {
         onChange={e => setIdPhotoName(e.value)}
       />
 
-      <Link to={nextPanelSlug} className="btn btn-primary">
-        Next
-      </Link>
+      <div className="action-row">
+        <Link to={nextPanelSlug} className="btn btn-primary">
+          Next
+        </Link>
+      </div>
     </BasePanel>
   );
 }

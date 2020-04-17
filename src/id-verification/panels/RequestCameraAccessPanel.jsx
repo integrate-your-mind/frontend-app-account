@@ -19,19 +19,23 @@ export default function RequestCameraAccessPanel() {
       {mediaAccess === MEDIA_ACCESS.PENDING && (
         <div>
           <p>Click the button below to enable the camera on your device.</p>
-          <button className="btn btn-primary mb-3" onClick={tryGetUserMedia}>
-            Enable Camera
-          </button>
-          <Collapsible.Advanced>
-            <Collapsible.Trigger tag="button" className="btn btn-link px-0 mb-3">
-              Having problems?
-            </Collapsible.Trigger>
-            <Collapsible.Body>
-              <Link to={nextPanelSlug} className="btn btn-outline-primary">
-                Skip and upload image files instead
-              </Link>
-            </Collapsible.Body>
-          </Collapsible.Advanced>
+          <div className="action-row">
+            <button className="btn btn-primary" onClick={tryGetUserMedia}>
+              Enable Camera
+            </button>
+            <Collapsible.Advanced className="mr-auto">
+              <Collapsible.Visible whenClosed>
+                <Collapsible.Trigger tag="button" className="btn btn-link px-0">
+                  Having problems?
+                </Collapsible.Trigger>
+              </Collapsible.Visible>
+              <Collapsible.Body>
+                <Link to={nextPanelSlug} className="btn btn-link">
+                  Skip and upload image files instead
+                </Link>
+              </Collapsible.Body>
+            </Collapsible.Advanced>
+          </div>
         </div>
       )}
 
@@ -40,9 +44,11 @@ export default function RequestCameraAccessPanel() {
           <p>
           Looks like your camera is working and ready.
           </p>
-          <Link to={nextPanelSlug} className="btn btn-primary">
-            Next
-          </Link>
+          <div className="action-row">
+            <Link to={nextPanelSlug} className="btn btn-primary">
+              Next
+            </Link>
+          </div>
         </div>
       )}
 
@@ -52,9 +58,11 @@ export default function RequestCameraAccessPanel() {
             It looks like we're unable to access your camera. You will need to upload
             image files of you and your photo id.
           </p>
-          <Link to={nextPanelSlug} className="btn btn-primary">
-            Next
-          </Link>
+          <div className="action-row">
+            <Link to={nextPanelSlug} className="btn btn-primary">
+              Next
+            </Link>
+          </div>
         </div>
       )}
 

@@ -1,0 +1,25 @@
+.page__id-verification {
+  .verification-panel {
+    max-width: 30rem;
+  }
+  .review-requirements-panel {
+    .card {
+      border-top: solid 4px theme-color('warning');
+    }
+  }
+  .action-row {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    .btn-primary {
+      min-width: 8rem;
+      margin-left: 1rem;
+    }
+    .btn-link {
+      padding-left: 0;
+      padding-right: 0;
+      text-decoration: underline;
+      align-self: center;
+    }
+  }
+}
