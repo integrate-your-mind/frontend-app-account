@@ -5,8 +5,8 @@ const panelSteps = [
   'portrait-photo-context',
   'take-portrait-photo',
   'id-context',
-  'get-name-id',
   'take-id-photo',
+  'get-name-id',
   'summary',
 ];
 
