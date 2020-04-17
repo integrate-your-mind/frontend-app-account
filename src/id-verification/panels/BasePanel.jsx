@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
+import { useVerificationRedirectSlug } from '../routing-utilities';
 
 export default function BasePanel({
   children,
@@ -15,6 +17,11 @@ export default function BasePanel({
       headingRef.current.focus();
     }
   }, []);
+
+  const redirectSlug = useVerificationRedirectSlug(name);
+  if (redirectSlug) {
+    return <Redirect to={redirectSlug} />;
+  }
 
   return (
     <div className={`${name}-panel`}>

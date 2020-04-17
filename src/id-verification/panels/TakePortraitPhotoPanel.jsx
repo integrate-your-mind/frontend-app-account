@@ -28,9 +28,11 @@ export default function TakePortraitPhotoPanel() {
         )}
       </div>
 
-      <Link to={nextPanelSlug} className="btn btn-primary">
-        Next
-      </Link>
+      {facePhotoFile && (
+        <Link to={nextPanelSlug} className="btn btn-primary">
+          Next
+        </Link>
+      )}
     </BasePanel>
   );
 }

@@ -28,9 +28,11 @@ export default function TakeIdPhotoPanel() {
         )}
       </div>
 
-      <Link to={nextPanelSlug} className="btn btn-primary">
-        Next
-      </Link>
+      {idPhotoFile && (
+        <Link to={nextPanelSlug} className="btn btn-primary">
+          Next
+        </Link>
+      )}
     </BasePanel>
   );
 }
