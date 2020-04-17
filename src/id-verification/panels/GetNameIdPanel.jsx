@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useNextPanelSlug } from '../routing-utilities';
 import BasePanel from './BasePanel';
 import { IdVerificationContext } from '../IdVerificationContext';
+import ImagePreview from '../ImagePreview';
 
 export default function GetNameIdPanel() {
   const panelSlug = 'get-name-id';
@@ -16,7 +17,9 @@ export default function GetNameIdPanel() {
       nameInputRef.current.focus();
     }
   }, [isEditing]);
-  const { nameOnAccount, idPhotoName, setIdPhotoName } = useContext(IdVerificationContext);
+  const {
+    nameOnAccount, idPhotoName, setIdPhotoName, idPhotoFile,
+  } = useContext(IdVerificationContext);
   const nameOnAccountValue = nameOnAccount || '';
   return (
     <BasePanel
@@ -49,6 +52,11 @@ export default function GetNameIdPanel() {
           </Button>
         </div>
       </div>
+      <ImagePreview
+        id="photo-of-id"
+        src={idPhotoFile}
+        alt="Photo of your ID to be submitted."
+      />
 
       <div className="action-row">
         <Link to={nextPanelSlug} className="btn btn-primary">

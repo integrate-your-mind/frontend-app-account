@@ -25,7 +25,7 @@ function IdVerificationPage() {
   return (
     <div className="page__id-verification container-fluid py-5">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-lg-6 col-md-8">
           <IdVerificationContextProvider>
             <Switch>
               <Route exact path={path}>
@@ -43,7 +43,7 @@ function IdVerificationPage() {
             </Switch>
           </IdVerificationContextProvider>
         </div>
-        <div className="col-md-6 pt-md-0 pt-4 text-right">
+        <div className="col-lg-6 col-md-4 pt-md-0 pt-4 text-right">
           <Button className="btn-link px-0" onClick={() => setIsModalOpen(true)}>
           Privacy Information
           </Button>
