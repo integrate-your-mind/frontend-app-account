@@ -18,11 +18,11 @@ export async function getExistingIdVerification() {
     headers: { Accept: 'application/json' },
   };
   try {
-    const responseData = await getAuthenticatedHttpClient().get(url, requestConfig);
+    const response = await getAuthenticatedHttpClient().get(url, requestConfig);
     return {
-      status: responseData.status || null,
-      expires: responseData.expires || null,
-      canVerify: responseData.can_verify || false,
+      status: response.data.status || null,
+      expires: response.data.expires || null,
+      canVerify: response.data.can_verify || false,
     };
   } catch (e) {
     return { status: null, expires: null, canVerify: false };

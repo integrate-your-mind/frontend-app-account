@@ -1,7 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { AppContext } from '@edx/frontend-platform/react';
 import { hasGetUserMediaSupport } from './getUserMediaShim';
+import { getExistingIdVerification } from './data/service';
 
 const IdVerificationContext = React.createContext({});
 
@@ -13,6 +14,7 @@ const MEDIA_ACCESS = {
 };
 
 function IdVerificationContextProvider({ children }) {
+  const [existingIdVerification, setExistingIdVerification] = useState(null);
   const [facePhotoFile, setFacePhotoFile] = useState(null);
   const [idPhotoFile, setIdPhotoFile] = useState(null);
   const [idPhotoName, setIdPhotoName] = useState(null);
@@ -23,12 +25,14 @@ function IdVerificationContextProvider({ children }) {
   const { authenticatedUser } = useContext(AppContext);
 
   const contextValue = {
+    existingIdVerification,
     facePhotoFile,
     idPhotoFile,
     idPhotoName,
     mediaStream,
     mediaAccess,
     nameOnAccount: authenticatedUser.name,
+    setExistingIdVerification,
     setFacePhotoFile,
     setIdPhotoFile,
     setIdPhotoName,
@@ -45,6 +49,27 @@ function IdVerificationContextProvider({ children }) {
       }
     },
   };
+
+  useEffect(() => {(async () => {
+    const existingIdV = await getExistingIdVerification();
+    setExistingIdVerification(existingIdV);
+  })()}, []);
+
+  if (!existingIdVerification) {
+    return (
+      <div className="page__id-verification container-fluid py-5">
+       <h1>Loading</h1>
+      </div>
+    );
+  }
+
+  if (!existingIdVerification.canVerify) {
+    return (
+      <div className="page__id-verification container-fluid py-5">
+       <h1>Nah</h1>
+      </div>
+    );
+  }
 
   return (
     <IdVerificationContext.Provider value={contextValue}>
