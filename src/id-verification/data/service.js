@@ -18,7 +18,7 @@ import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 // eslint-disable-next-line import/prefer-default-export
 export async function submitIdVerfication(verificationData) {
   const keyMap = {
-    facePhotoFile: 'face_photo',
+    facePhotoFile: 'face_image',
     idPhotoFile: 'photo_id_image',
     idPhotoName: 'full_name',
     courseRunKey: 'course_id',
@@ -26,8 +26,11 @@ export async function submitIdVerfication(verificationData) {
   const postData = {};
   // Don't include blank/null/undefined values.
   // Note that this will also drop the value `false`.
-  Object.keys(keyMap).forEach((key) => {
-    if (verificationData[key]) postData[key] = verificationData[key];
+  Object.keys(keyMap).forEach((jsKey) => {
+    const apiKey = keyMap[jsKey];
+    if (verificationData[jsKey]) {
+      postData[apiKey] = verificationData[jsKey];
+    }
   });
 
   const url = `${getConfig().LMS_BASE_URL}/verify_student/submit-photos/`;
