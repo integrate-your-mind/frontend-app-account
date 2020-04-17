@@ -15,7 +15,7 @@ export default function TakeIdPhotoPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title={shouldUseCamera ? 'Take ID Photo' : 'Upload Your Photo'}
+      title={shouldUseCamera ? 'Take ID Photo' : 'Upload Your ID Photo'}
     >
       <div>
         {idPhotoFile && <ImagePreview src={idPhotoFile} alt="Preview of photo of ID." />}
@@ -29,9 +29,11 @@ export default function TakeIdPhotoPanel() {
       </div>
 
       {idPhotoFile && (
-        <Link to={nextPanelSlug} className="btn btn-primary">
-          Next
-        </Link>
+        <div className="action-row">
+          <Link to={nextPanelSlug} className="btn btn-primary">
+            Next
+          </Link>
+        </div>
       )}
     </BasePanel>
   );

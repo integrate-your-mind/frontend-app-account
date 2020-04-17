@@ -16,7 +16,7 @@ export default function TakePortraitPhotoPanel() {
   return (
     <BasePanel
       name={panelSlug}
-      title={shouldUseCamera ? 'Take Your Photo' : 'Upload Your Photo'}
+      title={shouldUseCamera ? 'Take Your Photo' : 'Upload Your Portrait Photo'}
     >
       <div>
         {facePhotoFile && <ImagePreview src={facePhotoFile} alt="Preview of photo of user's face." />}
@@ -30,9 +30,11 @@ export default function TakePortraitPhotoPanel() {
       </div>
 
       {facePhotoFile && (
-        <Link to={nextPanelSlug} className="btn btn-primary">
-          Next
-        </Link>
+        <div className="action-row">
+          <Link to={nextPanelSlug} className="btn btn-primary">
+            Next
+          </Link>
+        </div>
       )}
     </BasePanel>
   );
