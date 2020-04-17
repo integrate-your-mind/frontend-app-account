@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Input } from '@edx/paragon';
+import React, { useContext, useState, useEffect, useRef } from 'react';
+import { Input, Button } from '@edx/paragon';
 import { Link } from 'react-router-dom';
 
 import { useNextPanelSlug } from '../routing-utilities';
@@ -8,7 +8,14 @@ import { IdVerificationContext } from '../IdVerificationContext';
 
 export default function GetNameIdPanel() {
   const panelSlug = 'get-name-id';
+  const [isEditing, setIsEditing] = useState(false);
+  const nameInputRef = useRef();
   const nextPanelSlug = useNextPanelSlug(panelSlug);
+  useEffect(() => {
+    if (isEditing && nameInputRef.current) {
+      nameInputRef.current.focus();
+    }
+  }, [isEditing]);
   const { nameOnAccount, idPhotoName, setIdPhotoName } = useContext(IdVerificationContext);
   const nameOnAccountValue = nameOnAccount || '';
   return (
@@ -16,33 +23,31 @@ export default function GetNameIdPanel() {
       name={panelSlug}
       title="Account Name Check"
     >
-      <p>Please check that the name on your edX account matches the one shown on your ID.</p>
+      <p>Please check the Account Name below to ensure it matches the name on your ID. If not, click "Edit".</p>
 
       <div className="alert alert-warning">
-        <strong>Please Note: the name you enter here will be saved to in account settings.</strong>
+        <strong>Please Note: any edit to your name will be saved to your account and can be reviewed on Account Settings.</strong>
       </div>
 
-      {nameOnAccount && (
-        <div className="form-group">
-          <label htmlFor="name-on-account">Name on your account</label>
-          <Input
-            id="name-on-account"
-            type="text"
-            readOnly
-            value={nameOnAccountValue}
-            onChange={() => {}}
-          />
-        </div>
-      )}
-
       <div className="form-group">
-        <label htmlFor="photo-id-name">Name on your id</label>
-        <Input
-          id="photo-id-name"
-          type="text"
-          value={idPhotoName || nameOnAccountValue}
-          onChange={e => setIdPhotoName(e.target.value)}
-        />
+        <label htmlFor="photo-id-name">Name</label>
+        <div className="d-flex">
+          <Input
+            id="photo-id-name"
+            type="text"
+            ref={nameInputRef}
+            disabled={!isEditing}
+            readOnly={!isEditing}
+            value={idPhotoName || nameOnAccountValue}
+            onChange={e => setIdPhotoName(e.target.value)}
+          />
+          <Button
+            className="btn-link px-0 ml-3"
+            onClick={() => setIsEditing(true)}
+          >
+            Edit
+          </Button>
+        </div>
       </div>
 
       <div className="action-row">
