@@ -44,12 +44,14 @@ export default function GetNameIdPanel() {
             value={idPhotoName || nameOnAccountValue}
             onChange={e => setIdPhotoName(e.target.value)}
           />
-          <Button
-            className="btn-link px-0 ml-3"
-            onClick={() => setIsEditing(true)}
-          >
-            Edit
-          </Button>
+          {!isEditing && (
+            <Button
+              className="btn-link px-0 ml-3"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit
+            </Button>
+          )}
         </div>
       </div>
       <ImagePreview
@@ -60,7 +62,7 @@ export default function GetNameIdPanel() {
 
       <div className="action-row">
         <Link to={nextPanelSlug} className="btn btn-primary">
-          Next
+          {isEditing ? 'Save' : 'Next'}
         </Link>
       </div>
     </BasePanel>
