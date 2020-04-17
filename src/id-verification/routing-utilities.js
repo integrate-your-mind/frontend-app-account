@@ -8,6 +8,7 @@ const panelSteps = [
   'take-id-photo',
   'get-name-id',
   'summary',
+  'submitted',
 ];
 
 // eslint-disable-next-line import/prefer-default-export
