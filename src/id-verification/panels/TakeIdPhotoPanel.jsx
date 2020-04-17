@@ -18,7 +18,7 @@ export default function TakeIdPhotoPanel() {
       title={shouldUseCamera ? 'Take ID Photo' : 'Upload Your Photo'}
     >
       <div>
-        {idPhotoFile && <ImagePreview src={idPhotoFile} name="Preview of photo of ID." />}
+        {idPhotoFile && <ImagePreview src={idPhotoFile} alt="Preview of photo of ID." />}
 
         {/* will swap with the camera component when it's ready */}
         {shouldUseCamera ? (

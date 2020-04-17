@@ -39,7 +39,7 @@ export default function SummaryPanel() {
     >
       <ImagePreview
         src={context.facePhotoFile}
-        name='Photo of your face to be submitted.'
+        alt='Photo of your face to be submitted.'
       />
       <SubmitButton />
     </BasePanel>

@@ -19,7 +19,7 @@ export default function TakePortraitPhotoPanel() {
       title={shouldUseCamera ? 'Take Your Photo' : 'Upload Your Photo'}
     >
       <div>
-        {facePhotoFile && <ImagePreview src={facePhotoFile} name="Preview of photo of user's face." />}
+        {facePhotoFile && <ImagePreview src={facePhotoFile} alt="Preview of photo of user's face." />}
 
         {/* will swap with the camera component when it's ready */}
         {shouldUseCamera ? (
