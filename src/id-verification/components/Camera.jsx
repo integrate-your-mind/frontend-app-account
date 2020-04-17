@@ -100,7 +100,6 @@ class App extends React.Component {
       }
     }
     var res = `
-      Detected Object (face)
       x: ${trackedObject.x}
       y: ${trackedObject.y}
       width: ${trackedObject.width}
@@ -131,10 +130,11 @@ class App extends React.Component {
           className="camera-video"
           style={{ display: this.state.dataUri ? 'block' : 'none' }}
           />
+          <button className="btn btn-primary camera-btn" accesskey="c" onClick={ () => {
+            this.takePhoto();
+          }}> {this.state.dataUri ? PHOTO_PROMTS.RETAKE_PHOTO : PHOTO_PROMTS.TAKE_PHOTO} </button>
         </div>
-        <button className="btn btn-primary" accesskey="c" onClick={ () => {
-          this.takePhoto();
-        }}> {this.state.dataUri ? PHOTO_PROMTS.RETAKE_PHOTO : PHOTO_PROMTS.TAKE_PHOTO} </button>
+        
       </div>
     );
   }

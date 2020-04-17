@@ -70,6 +70,15 @@ $fa-font-path: "~font-awesome/fonts";
   // left: 0px;
 }
 
+.camera-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}:focus {
+  position: absolute !important;
+}
+
 #tracking-info {
   position: absolute;
 }
