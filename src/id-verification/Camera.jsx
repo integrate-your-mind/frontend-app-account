@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
 
-import shutter from '../data/camera-shutter.base64.json'
+import shutter from './data/camera-shutter.base64.json'
 
 require('tracking')
 require('tracking/build/data/face')
@@ -11,12 +12,12 @@ const PHOTO_PROMTS = {
   RETAKE_PHOTO: 'Retake Photo'
 }
 
-class App extends React.Component {
+class Camera extends React.Component {
   constructor (props, context) {
     super(props, context);
     this.cameraPhoto = null;
     this.videoRef = React.createRef();
-    this.canvasRef = React.createRef();
+    // this.canvasRef = React.createRef();
     this.state = {
       trackedObject: null,
       dataUri: ''
@@ -78,6 +79,7 @@ class App extends React.Component {
     this.playShutterClick()
     let dataUri = this.cameraPhoto.getDataUri(config);
     this.setState({ dataUri });
+    this.props.onImageCapture(dataUri)
   }
 
   playShutterClick () {
@@ -109,28 +111,28 @@ class App extends React.Component {
   }
 
   render () {
-    let cameraFlashClass = this.state.dataUri ? 'do-transition normal' : 'normal';
+    let cameraFlashClass = this.state.dataUri ? 'do-transition camera-flash' : 'camera-flash';
     return (
       <div className="camera-component">
         <div className="camera-wrapper">
-          <div id='camera-flash' className={ cameraFlashClass }></div>
-          <div id='tracking-info' style={{whiteSpace: 'pre'}}>
+          <div className={ cameraFlashClass }></div>
+          <div className="tracking-info">
             {this.printTrackingInfo()}
           </div>
           <video
-          ref={this.videoRef}
-          autoPlay={true}
-          className="camera-video"
-          style={{ display: this.state.dataUri ? 'none' : 'block' }}
+            ref={this.videoRef}
+            autoPlay={true}
+            className="camera-video"
+            style={{ display: this.state.dataUri ? 'none' : 'block' }}
           />
           {/* <canvas className="camera-video" ref={this.canvasRef}/> */}
           <img
-          alt="imgCamera"
-          src={this.state.dataUri}
-          className="camera-video"
-          style={{ display: this.state.dataUri ? 'block' : 'none' }}
+            alt="imgCamera"
+            src={this.state.dataUri}
+            className="camera-video"
+            style={{ display: this.state.dataUri ? 'block' : 'none' }}
           />
-          <button className="btn btn-primary camera-btn" accesskey="c" onClick={ () => {
+          <button className="btn btn-primary camera-btn" accessKey="c" onClick={ () => {
             this.takePhoto();
           }}> {this.state.dataUri ? PHOTO_PROMTS.RETAKE_PHOTO : PHOTO_PROMTS.TAKE_PHOTO} </button>
         </div>
@@ -140,4 +142,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+Camera.propTypes = {
+  onImageCapture: PropTypes.func.isRequired,
+}
+
+export default Camera;

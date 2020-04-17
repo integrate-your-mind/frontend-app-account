@@ -52,22 +52,10 @@ $fa-font-path: "~font-awesome/fonts";
   }
 }
 
-.camera-component {
-  width: 100%;
-}
-
 .camera-wrapper {
   position: relative;
   width: 100%;
   height: 100%
-}
-
-.camera-video {
-  // position: absolute;
-  width: 100%;
-  // height: 100%;
-  // top: 0px;
-  // left: 0px;
 }
 
 .camera-btn {
@@ -75,7 +63,8 @@ $fa-font-path: "~font-awesome/fonts";
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-}:focus {
+}
+.camera-btn:focus {
   position: absolute !important;
 }
 

@@ -5,6 +5,7 @@ import { useNextPanelSlug } from '../routing-utilities';
 import BasePanel from './BasePanel';
 import ImageFileUpload from '../ImageFileUpload';
 import ImagePreview from '../ImagePreview';
+import Camera from '../Camera';
 import { IdVerificationContext, MEDIA_ACCESS } from '../IdVerificationContext';
 
 export default function TakePortraitPhotoPanel() {
@@ -19,11 +20,10 @@ export default function TakePortraitPhotoPanel() {
       title={shouldUseCamera ? 'Take Your Photo' : 'Upload Your Portrait Photo'}
     >
       <div>
-        {facePhotoFile && <ImagePreview src={facePhotoFile} alt="Preview of photo of user's face." />}
+        {facePhotoFile && !shouldUseCamera && <ImagePreview src={facePhotoFile} alt="Preview of photo of user's face." />}
 
-        {/* will swap with the camera component when it's ready */}
         {shouldUseCamera ? (
-          <ImageFileUpload onFileChange={setFacePhotoFile} />
+          <Camera onImageCapture={setFacePhotoFile} />
         ) : (
           <ImageFileUpload onFileChange={setFacePhotoFile} />
         )}
