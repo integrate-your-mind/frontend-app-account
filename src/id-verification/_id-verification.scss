@@ -30,6 +30,8 @@
   }
   .camera-outer-wrapper {
     margin-bottom: 15px;
+    text-align: center;
+    border-radius: 0.3rem;
   }
   .camera-wrapper {
     position: relative;
@@ -42,18 +44,7 @@
   }
 
   .camera-btn {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .camera-btn:focus {
-    position: absolute !important;
-  }
-
-  .tracking-info {
-    position: absolute;
-    white-space: pre;
+    margin: 10px;
   }
 
   .camera-flash {

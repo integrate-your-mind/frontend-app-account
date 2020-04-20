@@ -85,11 +85,10 @@ class Camera extends React.Component {
             className="camera-video"
             style={{ display: this.state.dataUri ? 'block' : 'none' }}
           />
-          <button className="btn btn-primary camera-btn" accessKey="c" onClick={ () => {
-            this.takePhoto();
-          }}> {this.state.dataUri ? PHOTO_PROMTS.RETAKE_PHOTO : PHOTO_PROMTS.TAKE_PHOTO} </button>
         </div>
-        
+        <button className="btn btn-primary camera-btn" accessKey="c" onClick={ () => {
+          this.takePhoto();
+        }}> {this.state.dataUri ? PHOTO_PROMTS.RETAKE_PHOTO : PHOTO_PROMTS.TAKE_PHOTO} </button>
       </div>
     );
   }

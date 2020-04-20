@@ -6,6 +6,7 @@ import BasePanel from './BasePanel';
 import ImageFileUpload from '../ImageFileUpload';
 import ImagePreview from '../ImagePreview';
 import Camera from '../Camera';
+import CameraHelp from '../CameraHelp';
 import { IdVerificationContext, MEDIA_ACCESS } from '../IdVerificationContext';
 
 export default function TakeIdPhotoPanel() {
@@ -22,19 +23,23 @@ export default function TakeIdPhotoPanel() {
         {idPhotoFile && !shouldUseCamera && <ImagePreview src={idPhotoFile} alt="Preview of photo of ID." />}
 
         {shouldUseCamera ? (
-          <Camera onImageCapture={setIdPhotoFile} />
+          <div>
+            <p>When your ID is in position, use the Take Photo button below to take your photo.</p>
+            <Camera onImageCapture={setIdPhotoFile} />
+          </div>
         ) : (
-          <ImageFileUpload onFileChange={setIdPhotoFile} />
+          <div>
+            <p>Please upload a ID photo. Ensure the entire ID fits inside the frame and is well-lit. (Supported formats: .jpg, .jpeg, .png)</p>
+            <ImageFileUpload onFileChange={setIdPhotoFile} />
+          </div>
         )}
       </div>
-
-      {idPhotoFile && (
-        <div className="action-row">
-          <Link to={nextPanelSlug} className="btn btn-primary">
-            Next
-          </Link>
-        </div>
-      )}
+      <div className="action-row" style={{ visibility: idPhotoFile ? 'unset' : 'hidden' }}>
+        <Link to={nextPanelSlug} className="btn btn-primary">
+          Next
+        </Link>
+      </div>
+      {shouldUseCamera && <CameraHelp/>}
     </BasePanel>
   );
 }
