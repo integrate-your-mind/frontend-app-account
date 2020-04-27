@@ -56,8 +56,8 @@
     "memoize-one": "5.1.1",
     "newrelic": "5.13.1",
     "prop-types": "15.7.2",
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-redux": "7.1.3",
     "react-router": "5.1.2",
     "react-router-dom": "5.1.2",
@@ -81,7 +81,7 @@
     "glob": "7.1.6",
     "husky": "3.0.9",
     "purgecss-webpack-plugin": "1.6.0",
-    "react-test-renderer": "16.8.6",
+    "react-test-renderer": "16.13.1",
     "reactifex": "1.1.1",
     "redux-mock-store": "1.5.4"
   }
